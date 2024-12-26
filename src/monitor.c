@@ -16,7 +16,7 @@ int start_monitoring() {
         printf("Total RAM: %lu MB\n", info.totalram / (1024 * 1024));
         printf("Free RAM: %lu MB\n", info.freeram / (1024 * 1024));
 
-        sleep(5); // Refresh every 5 seconds
+        sleep(5); // to refresh every 5 seconds
     }
 
     return 1;
