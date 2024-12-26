@@ -3,4 +3,4 @@
 
 int start_monitoring();
 
-#endif // MONITOR_H
+#endif
