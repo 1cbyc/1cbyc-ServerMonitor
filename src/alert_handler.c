@@ -3,5 +3,5 @@
 
 void check_alerts() {
     printf("Checking alerts...\n");
-    // Placeholder for alert logic
+    // to load alert logic
 }
