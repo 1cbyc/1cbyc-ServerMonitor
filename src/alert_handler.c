@@ -1,4 +1,5 @@
-#include "include/alert_handler.h"
+// #include "include/alert_handler.h"
+#include "alert_handler.h"
 #include <stdio.h>
 
 void check_alerts() {

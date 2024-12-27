@@ -1,0 +1,42 @@
+# compiler and flags
+CC = gcc
+CFLAGS = -Wall -Wextra -pedantic -std=c11 -Iinclude
+
+# directories
+SRC_DIR = src
+INCLUDE_DIR = include
+BUILD_DIR = build
+BIN_DIR = bin
+
+# output binary
+TARGET = $(BIN_DIR)/1cbyc-ServerMonitor
+
+# source files and objects
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
+
+# default target
+all: $(TARGET)
+
+# build target
+$(TARGET): $(OBJS) | $(BIN_DIR)
+	$(CC) $(CFLAGS) $^ -o $@
+
+# complile source files into object files
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c | $(BUILD_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# create necessary directories
+$(BUILD_DIR):
+	mkdir -p $@
+
+$(BIN_DIR):
+	mkdir -p $@
+
+# clean up build artifacts
+clean:
+	rm -rf $(BUILD_DIR) $(BIN_DIR)
+
+# run the program
+run: all
+	./$(TARGET)
